@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>口コミアシスタント</title>
+  <link rel="icon" href="Assistant.png" type="image/png">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: #fffaf2;
+      color: #5c4433;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .top-hero {
+      background: #ffe5c0;
+      padding: 2em 1em 1em;
+      border-radius: 0 0 24px 24px;
+    }
+    .top-title {
+      font-size: 1.6rem;
+      margin: 0.8em 0 0.3em;
+      font-weight: bold;
+    }
+    .top-icon img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #fff;
+      padding: 0.5em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 0.5em;
+    }
+    .top-sub {
+      font-size: 0.95rem;
+      opacity: 0.95;
+      margin-top: 0.5em;
+    }
+    .gender-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2em;
+      margin: 2em auto 1.5em;
+      flex-wrap: wrap;
+    }
+    .gender-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .gender-button img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #f4c089;
+      padding: 4px;
+      background: white;
+    }
+    .gender-button span {
+      margin-top: 0.4em;
+      font-weight: bold;
+    }
+    .link-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin: 1.5em 0;
+    }
+    .link-buttons a {
+      border: 2px solid #ec6d36;
+      color: #ec6d36;
+      background: #fff;
+      border-radius: 12px;
+      padding: 0.6em 1.2em;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .link-buttons a:hover {
+      background: #fff0e0;
+    }
+    .footer {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin: 2em 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-hero">
+  <h1 class="top-title">口コミアシスタント</h1>
+  <div class="top-icon">
+    <img src="Assistant.png" alt="口コミアシスタント アイコン" />
+  </div>
+  <div class="top-sub">かんたん操作で口コミ作成をサポート</div>
+  <p style="font-size: 0.85rem; margin-top: 0.5em; color: #5c4433;">
+    口コミを自動生成するツールです。<br>
+    まずは下の欄から、お好きな性別をお選びください。
+  </p>
+  <p style="font-size: 0.85rem; margin-top: 0.5em;">
+    <a href="tool-guide.html" style="color: #d2691e;">このツールの詳細はこちら</a>
+  </p>
+</div>
+
+<div class="gender-buttons">
+  <a href="male.html" class="gender-button">
+    <img src="male.png" alt="男性版">
+    <span>男性</span>
+  </a>
+  <a href="female.html" class="gender-button">
+    <img src="female.png" alt="女性版">
+    <span>女性</span>
+  </a>
+  <a href="neutral.html" class="gender-button">
+    <img src="natural.png" alt="選択しない">
+    <span>選択しない</span>
+  </a>
+</div>
+
+<div class="link-buttons">
+  <a href="https://momitoku.main.jp/" target="_blank">もみ徳公式HP</a>
+  <a href="https://momitoku.main.jp/meinohama/index.html" target="_blank">姪浜店HP</a>
+</div>
+
+<div class="link-buttons">
+  <a href="app-guide.html">予約アプリはこちら</a>
+</div>
+
+<div class="footer">
+  &copy; もみ徳口コミアシスタント
+</div>
+
+</body>
+</html>
