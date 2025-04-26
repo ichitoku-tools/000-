@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>もみ徳｜口コミアシスタント（中性版・ベージュカラー）</title>
+  <style>
+    :root {
+      --main-color: #f5e6c8;
+      --accent-color: #d2b48c;
+      --bg-color: #fffaf2;
+      --text-color: #5c4433;
+      --light-bg: #fffaf5;
+      --border-color: #e0c8a0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 1em;
+      text-align: center;
+      word-break: break-word;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .top-hero {
+      background: var(--main-color);
+      color: var(--text-color);
+      padding: 2.5em 1em 1.5em;
+      border-radius: 0 0 24px 24px;
+    }
+    .top-icon img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #fff;
+      padding: 0.5em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .top-title {
+      font-size: 1.6rem;
+      margin: 0.8em 0 0.3em;
+      font-weight: bold;
+    }
+    .top-sub {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+    .select-box {
+      background: var(--light-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      max-width: 640px;
+      margin: 1.5em auto;
+      padding: 1.5em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .flex-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6em;
+      margin-bottom: 1em;
+    }
+    .button-orange {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.8em 1.2em;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+    }
+    .button-orange:hover {
+      background: #c19a6b;
+    }
+    #free-input {
+      width: calc(100% - 2em);
+      max-width: 600px;
+      height: 80px;
+      padding: 0.7em;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      resize: vertical;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    #output {
+      background: #fff8f0;
+      border: 2px dashed var(--accent-color);
+      padding: 1em;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      margin-top: 1em;
+      max-width: 600px;
+      min-height: 4em;
+      font-size: 1rem;
+      color: #5c4433;
+    }
+    #review-links {
+      margin-top: 2em;
+    }
+    .badge {
+      background: #f0e0c0;
+      margin: 2px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    select {
+      font-size: 1rem;
+      padding: 0.6em;
+      border-radius: 8px;
+      border: 2px solid var(--border-color);
+      background: #fffaf2;
+      width: 80%;
+      max-width: 320px;
+      color: var(--text-color);
+    }
+    select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background: #fff6e8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-hero">
+  <div class="top-icon">
+    <img src="neutral.png" alt="中性アイコン" />
+  </div>
+  <h1 class="top-title">口コミアシスタント</h1>
+  <div class="top-sub">カンタン操作で、あなたの想いを届けやすく。</div>
+</div>
+
+<div class="select-box">
+  <h2>スタッフ名</h2>
+  <p style="font-size: 0.85rem; color: #777;">スタッフをお選びください。</p>
+  <select id="staff-select">
+    <option value="">選択してください</option>
+    <option value="横田">横田</option>
+    <option value="桜井">桜井</option>
+    <option value="米倉">米倉</option>
+    <option value="木田">木田</option>
+    <option value="不明">不明</option>
+  </select>
+</div>
+
+<div class="select-box">
+  <h2>施術後に感じたこと</h2>
+  <p style="font-size: 0.85rem; color: #777;">※最大3つまで選択できます。</p>
+  <select id="impression-select" multiple style="height: 8em;">
+    <option value="コリに的確">コリに的確</option>
+    <option value="力強い">力強い</option>
+    <option value="動作が楽に">動作が楽に</option>
+    <option value="スッキリ">スッキリ</option>
+    <option value="丁寧な接客">丁寧な接客</option>
+    <option value="ワザが凄い">ワザが凄い</option>
+  </select>
+  <div id="impression-display" style="margin-top: 1em; font-size: 0.9rem;"></div>
+</div>
+
+<div class="select-box">
+  <h2>口コミの口調を選ぶ</h2>
+  <p style="font-size: 0.85rem; color: #777;">選んだ口調で口コミが生成されます。</p>
+  <select id="tone-select">
+    <option value="ですます調" selected>ですます調</option>
+    <option value="カジュアル">カジュアル</option>
+    <option value="フレンドリー">フレンドリー</option>
+    <option value="しっかり敬語">しっかり敬語</option>
+  </select>
+</div>
+
+<div class="select-box">
+  <h2>口コミ作成・コピー</h2>
+  <p style="font-size: 0.85rem; color: #777;">
+    自動で口コミを生成します。<br>
+    コピーを押すと投稿リンクが出現します。
+  </p>
+  <div class="flex-buttons">
+    <button class="button-orange" onclick="generateReview()">口コミを作成する</button>
+    <button class="button-orange" onclick="copyReview()">コピーする</button>
+  </div>
+  <div id="output"></div>
+</div>
+
+<div id="review-links" class="select-box" style="display:none;">
+  <h2>口コミを投稿する</h2>
+  <p style="font-size: 0.85rem; color: #777;">コピー後に、該当する端末用リンクから投稿できます。</p>
+  <div class="flex-buttons">
+    <a href="https://www.google.co.jp/search?q=もみ徳姪浜店+クチコミ" target="_blank" class="button-orange">Android用</a>
+    <a href="https://www.google.com/gasearch?q=もみ徳姪浜店+レビュー&source=sh/x/gs/m2/5#ebo=1" target="_blank" class="button-orange">iPhone用</a>
+  </div>
+  <p style="font-size: 0.75rem; color: #888; margin-top: 0.5em;">※iPhoneの方は先に「★（星）」をタップしてください。</p>
+</div>
+
+<script>
+const neutralPhrases = {
+  "コリに的確": ["気になっていたポイントにぴったり届きました。", "コリをしっかり捉えてくれる施術でした。", "必要なところに自然とアプローチしてもらえました。"],
+  "力強い": ["適度な力加減で、安心して受けられました。", "深いところまで無理なくほぐしてもらえました。", "しっかり効かせてくれる心地よい施術でした。"],
+  "動作が楽に": ["動きがスムーズになったのを実感しました。", "身体が軽くなったような感覚がありました。", "自然と動きやすさが戻った気がします。"],
+  "スッキリ": ["心も身体もスッと軽くなった気がします。", "施術後、とても爽やかな気分になりました。", "全身がリフレッシュされたように感じました。"],
+  "丁寧な接客": ["一つひとつの対応がとても丁寧で安心できました。", "落ち着いた雰囲気でリラックスできました。", "こちらのペースに合わせたやさしい接客でした。"],
+  "ワザが凄い": ["体に合わせた的確な施術をしてもらえました。", "手技のひとつひとつに熟練の技を感じました。", "自然に体がほぐれていくのがわかりました。"]
+};
+
+const impressionSelect = document.getElementById("impression-select");
+const impressionDisplay = document.getElementById("impression-display");
+
+impressionSelect.addEventListener("input", () => {
+  const options = Array.from(impressionSelect.options);
+  const selected = options.filter(opt => opt.selected);
+  if (selected.length >= 3) {
+    options.forEach(opt => { if (!opt.selected) opt.disabled = true; });
+  } else {
+    options.forEach(opt => { opt.disabled = false; });
+  }
+  const values = selected.map(opt => opt.value);
+  impressionDisplay.innerHTML = values.length
+    ? "選択中：" + values.map(val => `<span class='badge'>${val}</span>`).join("")
+    : "";
+});
+
+function generateReview() {
+  const therapist = document.getElementById("staff-select").value || "不明";
+  const tone = document.getElementById("tone-select").value;
+  const selected = Array.from(impressionSelect.selectedOptions).map(opt => opt.value);
+  const freeInput = document.getElementById("free-input")?.value.trim();
+  const phrases = selected.map(item => {
+    const list = neutralPhrases[item];
+    return list ? list[Math.floor(Math.random() * list.length)] : item;
+  });
+
+  let review = (therapist === "不明" ? "施術を受けました。" : `${therapist}さんの施術を受けました。`) + "\n";
+  review += phrases.join(" ") + "\n";
+
+  const outro = {
+    "ですます調": "またお願いしたいと思います。",
+    "カジュアル": "また行きたいなーって思いました！",
+    "フレンドリー": "またお願いしまーす！",
+    "しっかり敬語": "次回もぜひお願いしたく存じます。"
+  }[tone] || "";
+
+  review += outro;
+
+  if (freeInput) {
+    review += "\n" + freeInput;
+  }
+
+  document.getElementById("output").textContent = review;
+}
+
+function copyReview() {
+  const reviewText = document.getElementById("output").textContent;
+  if (reviewText) {
+    navigator.clipboard.writeText(reviewText).then(() => {
+      alert("コピーしました！");
+      document.getElementById("review-links").style.display = "block";
+    });
+  }
+}
+</script>
+
+</body>
+</html>
